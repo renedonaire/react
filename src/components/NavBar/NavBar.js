@@ -7,7 +7,7 @@ export const NavBar = () => {
             <Container>
                 <Navbar.Brand href="#">
                     <img
-                        src="./images/logo.png"
+                        src="../images/logo.png"
                         width="100"
                         height="40"
                         className="d-inline-block "
