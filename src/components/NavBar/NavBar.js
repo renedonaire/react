@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, Container } from 'react-bootstrap';
+import { CartWidget } from "../CartWidget/CartWidget";
 
 export const NavBar = () => {
     return (
@@ -14,11 +15,12 @@ export const NavBar = () => {
                         alt=""
                     />
                 </Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#">Novedades</Nav.Link>
-                        <Nav.Link href="#">Libros</Nav.Link>
-                        <Nav.Link href="#">Descargas</Nav.Link>
-                    </Nav>
+                <Nav className="me-auto">
+                    <Nav.Link href="#">Novedades</Nav.Link>
+                    <Nav.Link href="#">Libros</Nav.Link>
+                    <Nav.Link href="#">Descargas</Nav.Link>
+                </Nav>
+                <CartWidget />
             </Container>
         </Navbar>
     )
