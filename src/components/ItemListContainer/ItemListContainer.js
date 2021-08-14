@@ -1,12 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-export const ItemListContainer = ( {greeting} ) => {
-
-
+export const ItemListContainer = ( {saludo} ) => {
     return (
         <div>
-            <h2>{greeting}</h2>
-            <hr/>
+            <h2>{saludo}</h2>
         </div>
     )
 }
