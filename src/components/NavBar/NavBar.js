@@ -1,9 +1,10 @@
 import React from 'react';
-import { Nav, Navbar, Container } from 'react-bootstrap';
-import { CartWidget } from "../CartWidget/CartWidget";
+import { Nav, Navbar, Container } from 'react-bootstrap'; // Importa componentes de react-bootstrapt para poder utilizarlos
+import { CartWidget } from "../CartWidget/CartWidget"; // Importa componente "imagen carrito"
 
 export const NavBar = () => {
     return (
+        // Retorna una navbar con clases de react-bootstrap
         <Navbar bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand href="#">
