@@ -1,10 +1,13 @@
 import React from 'react';
+import { FaCartArrowDown } from "react-icons/fa";
+import "./CartWidget.scss";
 
-export const CartWidget = () => {
+export const CartWidget = ({items}) => {
     return (
-        // Retorna una imagen de carrito
-        <>
-            <img src="../images/carrito.svg" alt="Carrito" />
-        </>
+        // Retorna un icono de carrito
+        <div className="carrito" >
+            <FaCartArrowDown />
+            <span>{items}</span>
+        </div>
     )
 };
