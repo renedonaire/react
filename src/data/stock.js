@@ -17,7 +17,7 @@ export const stock = [
         id: 3,
         title: "El Libro de la Luna",
         price: 14000,
-        description: "La Luna merece que alguien cuente su historia, pues lleva milenios inspirando novelas, poemas, canciones. Eso defiende Fatoumata Kébé, la astrónoma y astrofísica que ha dedicado su vida a estudiarla. Por eso este bellísimo homenaje a la Luna, a su cosmogonía. Cuando llegamos, la Luna ya está´ ahí´arriba, y sin embargo sigue siendo uno de los grandes misterios del universo. ",
+        description: "La Luna merece que alguien cuente su historia, pues lleva milenios inspirando novelas, poemas, canciones. Eso defiende Fatoumata Kébé, la astrónoma y astrofísica que ha dedicado su vida a estudiarla. Por eso este bellísimo homenaje a la Luna, a su cosmogonía. Cuando llegamos, la Luna ya está ahí arriba, y sin embargo sigue siendo uno de los grandes misterios del universo. ",
         pictureUrl: "https://www.antartica.cl/media/catalog/product/9/7/9788418187124_1.png?quality=80&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg"
     },
     {
