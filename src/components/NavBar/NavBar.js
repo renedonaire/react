@@ -1,8 +1,8 @@
 import React from 'react';
 import { Nav, Navbar, Container } from 'react-bootstrap'; // Importa componentes de react-bootstrapt para poder utilizarlos
 import { CartWidget } from "../CartWidget/CartWidget"; // Importa componente "imagen carrito"
-import "./NavBar.scss";
-import logo from "../images/logo.svg";
+import "./NavBar.scss"; // Importa estilos
+import logo from "../images/logo.svg"; // Importa imagen local
 
 export const NavBar = () => {
     return (
@@ -13,7 +13,7 @@ export const NavBar = () => {
                     <img
                         src={logo}
                         width="200"
-                        height = "45"
+                        height="45"
                         className="d-inline-block "
                         alt=""
                     />
@@ -23,7 +23,7 @@ export const NavBar = () => {
                     <Nav.Link href="#">Libros</Nav.Link>
                     <Nav.Link href="#">Descargas</Nav.Link>
                 </Nav>
-                <CartWidget items={3}/>
+                <CartWidget items={0} />
             </Container>
         </Navbar>
     )
