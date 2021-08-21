@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { pedirDatos } from '../../helpers/pedirDatos';
 import { ItemList } from '../ItemList/ItemList';
+import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import './ItemListContainer.scss';
 
 export const ItemListContainer = () => {
 
@@ -23,7 +25,14 @@ export const ItemListContainer = () => {
     return (
         <>
             {loading
-                ? <h2>Cargando...</h2>
+                ?
+                <Container className="ItemListContainer_spinner">
+                    <Row>
+                        <Col ><h2>Cargando...</h2></Col>
+                        <Col><Spinner animation="grow" variant="dark" /></Col>
+                    </Row>
+                </Container>
+
                 : <ItemList productos={data} />
             }
         </>

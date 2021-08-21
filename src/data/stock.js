@@ -40,5 +40,19 @@ export const stock = [
         price: 12970,
         description: "El mundo y la historia tienen coincidencias irremediables. Este es un ensayo global para entender cómo en las peores crisis ha habido mentes brillantes que han intentado señalar y hacer la diferencia ante el desprecio de las élites. En este ensayo global se ponen de presente temas de una actualidad apabullante. Los propagandistas de este capitalismo tardío nos quieren hacer creer que no tenemos alternativas para él, lo cual es un embuste visto desde la perspectiva histórica.",
         pictureUrl: "https://www.antartica.cl/media/catalog/product/9/7/9789584294647_2.png?quality=80&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg"
+    },
+        {
+        id: 7,
+        title: "De Pronto Oigo La Voz Del Agua",
+        price: 14000,
+        description: "Un hermano y una hermana retornan a la casa de su infancia, al lugar de la felicidad, los deseos y los secretos prohibidos y a punto de ser revelados. Los recuerdos luminosos se mezclan con los que irrumpen cargados de oscuridad: el tacto delicado del lino con el tumulto al huir del ataque con gas sarín; los silencios dolorosos de la familia con el sonido de los insectos de montaña.",
+        pictureUrl: "https://www.antartica.cl/media/catalog/product/9/7/9788420423906_1.png?quality=80&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg"
+    },
+            {
+        id: 8,
+        title: "El Psicoanalista",
+        price: 15000,
+        description: "«Feliz aniversario, doctor. Bienvenido al primer día de su muerte.» Así comienza el anónimo que recibe el psicoanalista Frederick Starks, y que le obliga a emplear toda su astucia y rapidez para, en quince días, averiguar quién es el autor de esa amenazadora misiva que promete hacerle la vida imposible.",
+        pictureUrl: "https://www.antartica.cl/media/catalog/product/9/7/9789569977886_1.png?quality=80&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg"
     }
 ];
