@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-bootstrap'; 
 
 export const Item = ({ id, title, description, price, pictureUrl }) => {
     return (
