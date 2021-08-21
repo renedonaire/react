@@ -9,18 +9,18 @@ export const ItemListContainer = () => {
     const [data, setData] = useState([]) // Hook de estado, inicia con array vacío
     const [loading, setLoading] = useState(false) // Hook de estado, inicia con el valor 'false'
 
-    useEffect(() => {
-        setLoading(true) // Ajuste el estado 'cargando'  a verdadero...
-
-        pedirDatos() // ...mientras llega la respuesta con los datos...
+    useEffect(() => { // Hook de efecto, se realiza al montar
+        // Ajuste el estado 'cargando'  a verdadero...
+        setLoading(true)
+        // ...mientras llega la respuesta con los datos...
+        pedirDatos() 
             .then(res => setData(res))
             .catch(err => console.log(err))
+            // ...y cuando llegan los datos el estado 'cargando' vuelve a falso
             .finally(() => {
-                setLoading(false) // ...y cuando llegan los datos el estado 'cargando' vuelve a falso
+                setLoading(false) 
             })
-
     }, [])
-
 
     return (
         <>
