@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../styles/styles.css"; //Estilos para el título
+import { pedirDatos } from 'module'
+import { ItemList } from '../ItemList';
 
-export const ItemListContainer = ({ saludo }) => {
-    // Retorna un título H1 con la clase "saludo" que se importó
+export const ItemListContainer = () => {
+
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+
+        pedirDatos()
+            .then(res => setData(res))
+            .catch(err => console.log(err))
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }, [])
+
+
     return (
-        <div>
-            <h1 class="saludo">{saludo}</h1>
-        </div>
+        <>
+            {loading
+                ? <h2>Cargando...</h2>
+                : <ItemList productos={data} />
+            }
+        </>
     )
-};
+}
