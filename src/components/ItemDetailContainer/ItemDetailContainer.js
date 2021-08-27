@@ -4,18 +4,19 @@ import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 
 export const ItemDetailContainer = () => {
-    const { id } = useParams()
+
+    const { itemId } = useParams()
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(()=>{
         setLoading(true)
         pedirDatos()
-            .then( response => {
-                setItem( response.find( prod => prod.id === parseInt(id)) )
+            .then( res => {
+                setItem( res.find( prod => prod.id === parseInt(itemId)) )
             })
             .finally(()=> { setLoading(false)})
-    }, [id])
+    }, [itemId])
 
     return (
         <div>

@@ -17,9 +17,6 @@ function App() {
 					<Route exact path="/detail/:itemId">
 						<ItemDetailContainer />
 					</Route>
-					<Route exact path="/cart">
-						<h1>Carrito - Proximamente</h1>
-					</Route>
 					<Route path="*">
 						<Redirect to="/" />
 					</Route>

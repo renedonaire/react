@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {Container} from 'react-bootstrap'
 
-//  id, title, description, price, pictureUrl
 export const ItemDetail = ({title, description, price, pictureUrl}) => {
-
     return (
         <Container>
             <h2>{title}</h2>
