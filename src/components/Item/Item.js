@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap'; // Importa componentes de bootstrap
 import './Item.scss'; // Importa estilo del componente
+import { Link } from 'react-router-dom';
 
 export const Item = ({ id, title, description, price, pictureUrl }) => {
     return (
@@ -12,9 +13,10 @@ export const Item = ({ id, title, description, price, pictureUrl }) => {
                 <Col><p className='item_description'>{description}</p></Col>
             </Row>
             <Row>
-                <Col></Col>
+                <Col> <Link to={`/detail/${id}`} className="btn btn-outline-primary">Ver más</Link></Col>
                 <Col><p className='item_price'>${price}</p></Col>
             </Row>
+            <Link to={`/detail/${id}`} className="btn btn-outline-primary">Ver más</Link>
         </div>
     )
 };
