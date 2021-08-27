@@ -3,27 +3,19 @@ import { useParams } from 'react-router-dom'
 import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 
-
-
-
 export const ItemDetailContainer = () => {
-
-    const { itemId } = useParams()
-
+    const { id } = useParams()
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(()=>{
         setLoading(true)
-
         pedirDatos()
-            .then( res => {
-                setItem( res.find( prod => prod.id === parseInt(itemId)) )
+            .then( response => {
+                setItem( response.find( prod => prod.id === parseInt(id)) )
             })
             .finally(()=> { setLoading(false)})
-
-    }, [itemId])
-
+    }, [id])
 
     return (
         <div>
