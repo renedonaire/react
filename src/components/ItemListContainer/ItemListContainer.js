@@ -35,7 +35,7 @@ export const ItemListContainer = () => {
                     <Container className="ItemListContainer_spinner">
                         <Row>
                             <Col ><h2>Cargando...</h2></Col>
-                            <Col><Spinner animation="grow" variant="dark" /></Col>
+                            <Col><Spinner animation="grow" variant="danger" /></Col>
                         </Row>
                     </Container>
                 :
