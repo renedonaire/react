@@ -1,6 +1,7 @@
 export const stock = [
 	{
 		id: 1,
+		category: "novedades",
 		title: "Dibujando El Cosmos",
 		price: 14900,
 		description:
@@ -12,6 +13,7 @@ export const stock = [
 	},
 	{
 		id: 2,
+		category: "novedades",
 		title: "La Ciudad que No Existe",
 		price: 13900,
 		description:
@@ -23,6 +25,7 @@ export const stock = [
 	},
 	{
 		id: 3,
+		category: "novedades",
 		title: "El Libro de la Luna",
 		price: 14000,
 		description:
@@ -34,6 +37,7 @@ export const stock = [
 	},
 	{
 		id: 4,
+		category: "novedades",
 		title: "El Hombre Ilustrado",
 		price: 12900,
 		description:
@@ -45,6 +49,7 @@ export const stock = [
 	},
 	{
 		id: 5,
+		category: "ficcion",
 		title: "Alas Negras",
 		price: 9900,
 		description:
@@ -56,6 +61,7 @@ export const stock = [
 	},
 	{
 		id: 6,
+		category: "ficcion",
 		title: "Los Que Sobran",
 		price: 12970,
 		description:
@@ -67,6 +73,7 @@ export const stock = [
 	},
 	{
 		id: 7,
+		category: "ficcion",
 		title: "De Pronto Oigo La Voz Del Agua",
 		price: 14000,
 		description:
@@ -78,6 +85,7 @@ export const stock = [
 	},
 	{
 		id: 8,
+		category: "ficcion",
 		title: "El Psicoanalista",
 		price: 15000,
 		description:
