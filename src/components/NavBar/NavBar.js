@@ -3,7 +3,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap'
 import { CartWidget } from "../CartWidget/CartWidget"
 import "./NavBar.scss"
 import logo from "../images/logo.svg"
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const NavBar = () => {
     return (
@@ -19,10 +19,10 @@ export const NavBar = () => {
                     />
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link to={"/"}>Inicio</Nav.Link>
-                    <Nav.Link to={"/category/novedades"}>Novedades</Nav.Link>
-                    <Nav.Link to={"/category/ficcion"}>Ficción</Nav.Link>
-                    <Nav.Link to={"/cart"}>Carro de compra</Nav.Link>
+                    <Link to={"/"}>Inicio</Link>
+                    <Link to={"/category/novedades"}>Novedades</Link>
+                    <Link to={"/category/ficcion"}>Ficción</Link>
+                    <Link to={"/cart"}>Carro de compra</Link>
                 </Nav>
                 <CartWidget items={0} />
             </Container>
