@@ -19,10 +19,10 @@ export const NavBar = () => {
                     />
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Link to={"/"}>Inicio</Link>
-                    <Link to={"/category/novedades"}>Novedades</Link>
-                    <Link to={"/category/ficcion"}>Ficción</Link>
-                    <Link to={"/cart"}>Carro de compra</Link>
+                    <Link className="nav_link" to={"/"}>Inicio</Link>
+                    <Link className="nav_link" to={"/category/novedades"}>Novedades</Link>
+                    <Link className="nav_link" to={"/category/ficcion"}>Ficción</Link>
+                    <Link className="nav_link" to={"/cart"}>Carro de compra</Link>
                 </Nav>
                 <CartWidget items={0} />
             </Container>

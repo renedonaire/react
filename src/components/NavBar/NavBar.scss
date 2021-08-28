@@ -2,6 +2,12 @@
 	margin-right: 4rem;
 }
 
-.nav-link:hover {
+.nav_link{
+	text-decoration: none;
+	color: lightgray;
+	padding: 0 2rem 0 2rem;
+}
+
+.nav_link:hover {
 	color: orangered !important;
 }
