@@ -27,6 +27,8 @@ El proyecto usa estas dependencias:
 
 
 # En funcionamiento
+Link a archivo .gif que muestra el funcionamiento:
+https://github.com/renedonaire/gifs/blob/main/BlackDog.gif
 
 
 # Autor
