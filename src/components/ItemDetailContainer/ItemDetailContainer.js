@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
+import { Container, Row, Col, Spinner } from 'react-bootstrap'
 
 export const ItemDetailContainer = () => {
 
@@ -19,11 +20,18 @@ export const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
-        <div>
-            {loading 
-                ? <h2>Cargando...</h2>
-                : <ItemDetail {...item}/>
+        <>
+            {loading
+                ?
+                    <Container className="ItemListContainer_spinner">
+                        <Row>
+                            <Col ><h2>Cargando...</h2></Col>
+                            <Col><Spinner animation="grow" variant="dark" /></Col>
+                        </Row>
+                    </Container>
+                :
+                    <ItemDetail {...item}/>
             }
-        </div>
+        </>
     )
 }

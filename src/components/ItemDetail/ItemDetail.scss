@@ -1,0 +1,34 @@
+.item_detail_title {
+	color: darkslategrey;
+	text-align: center;
+	margin: 2rem;
+}
+
+.item_detail_image {
+	height: 75%;
+    width: auto;
+}
+
+.item_detail_description {
+	font-size: 16px;
+    margin-bottom: 4rem;
+}
+
+.item_detail_price {
+	color: darkgreen;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.item_detail_row {
+	display: flex;
+}
+
+.item_detail_col {
+	text-align: center;
+}
+
+.item_detail_book {
+    display: flex;
+    justify-content: flex-end;
+}
