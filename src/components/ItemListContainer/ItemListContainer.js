@@ -39,7 +39,7 @@ export const ItemListContainer = () => {
                         </Row>
                     </Container>
                 :
-                    <ItemList productos={data} />
+                <ItemList catID={catId} productos={data} />
             }
         </>
     )
