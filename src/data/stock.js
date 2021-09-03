@@ -4,6 +4,7 @@ export const stock = [
 		category: "novedades",
 		title: "Dibujando El Cosmos",
 		price: 14900,
+		stock: 7,
 		description:
 			"El cielo nos habla y nosotros lo escuchamos atentos con nuestros ojos. Cuando éramos niños perdíamos la vista en las nubes y dibujábamos las formas de nuestra realidad: rostros, objetos, animales, nuestros recuerdos y fantasías, hasta que el viento las borraba y las figuras se esparcían.",
 		description_full:
@@ -16,6 +17,7 @@ export const stock = [
 		category: "novedades",
 		title: "La Ciudad que No Existe",
 		price: 13900,
+		stock: 4,
 		description:
 			"¿Sabías que durante la guerra del Pacífico el almirante Carlos Condell combatió frente a su propio tío, el marino Antonio de la Haza, o que en 1933, y después de un campeonato jugado en Lima donde participó Colo-Colo, chilenos y peruanos decidieron formar el equipo All Pacific y dar una gira por Europa?",
 		description_full:
@@ -28,6 +30,7 @@ export const stock = [
 		category: "novedades",
 		title: "El Libro de la Luna",
 		price: 14000,
+		stock: 2,
 		description:
 			"La Luna merece que alguien cuente su historia, pues lleva milenios inspirando novelas, poemas, canciones. Eso defiende Fatoumata Kébé, la astrónoma y astrofísica que ha dedicado su vida a estudiarla. Por eso este bellísimo homenaje a la Luna, a su cosmogonía. Cuando llegamos, la Luna ya está ahí arriba, y sin embargo sigue siendo uno de los grandes misterios del universo. ",
 		description_full:
@@ -40,6 +43,7 @@ export const stock = [
 		category: "novedades",
 		title: "El Hombre Ilustrado",
 		price: 12900,
+		stock: 0,
 		description:
 			"Cada uno de los dieciocho relatos que componen este libro es una muestra de la maestría narrativa de Ray Bradbury. En esta colección de historias entrelazadas, el narrador anónimo conoce a El Hombre Ilustrado, un curioso personaje con el cuerpo completamente cubierto de tatuajes.",
 		description_full:
@@ -52,6 +56,7 @@ export const stock = [
 		category: "ficcion",
 		title: "Alas Negras",
 		price: 9900,
+		stock: 9,
 		description:
 			"En la serie de libros compuesta por Alas de fuego y Alas negras Laura Gallego narra la historia de la caída y redención del ángel Ahriel. La reina Marla, de sólo diecisiete años, es la soberana de una nación resplandeciente. Ahriel, un ángel femenino, está a su lado desde que nació, con la misión de guiarla y protegerla, y de guardar el equilibrio en los reinos humanos.",
 		description_full:
@@ -64,6 +69,7 @@ export const stock = [
 		category: "ficcion",
 		title: "Los Que Sobran",
 		price: 12970,
+		stock: 1,
 		description:
 			"El mundo y la historia tienen coincidencias irremediables. Este es un ensayo global para entender cómo en las peores crisis ha habido mentes brillantes que han intentado señalar y hacer la diferencia ante el desprecio de las élites. En este ensayo global se ponen de presente temas de una actualidad apabullante. Los propagandistas de este capitalismo tardío nos quieren hacer creer que no tenemos alternativas para él, lo cual es un embuste visto desde la perspectiva histórica.",
 		description_full:
@@ -76,6 +82,7 @@ export const stock = [
 		category: "ficcion",
 		title: "De Pronto Oigo La Voz Del Agua",
 		price: 14000,
+		stock: 18,
 		description:
 			"Un hermano y una hermana retornan a la casa de su infancia, al lugar de la felicidad, los deseos y los secretos prohibidos y a punto de ser revelados. Los recuerdos luminosos se mezclan con los que irrumpen cargados de oscuridad: el tacto delicado del lino con el tumulto al huir del ataque con gas sarín; los silencios dolorosos de la familia con el sonido de los insectos de montaña.",
 		description_full:
@@ -88,6 +95,7 @@ export const stock = [
 		category: "ficcion",
 		title: "El Psicoanalista",
 		price: 15000,
+		stock: 3,
 		description:
 			"«Feliz aniversario, doctor. Bienvenido al primer día de su muerte.» Así comienza el anónimo que recibe el psicoanalista Frederick Starks, y que le obliga a emplear toda su astucia y rapidez para, en quince días, averiguar quién es el autor de esa amenazadora misiva que promete hacerle la vida imposible.",
 		description_full:
