@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export const Counter = ({max, cantidad, setCantidad, agregar, agregado}) => {
+export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
     console.log(agregado)
 
     const handleSumar = () => {
@@ -9,7 +9,7 @@ export const Counter = ({max, cantidad, setCantidad, agregar, agregado}) => {
             setCantidad(cantidad + 1)
         }
     }
-    
+
     const handleRestar = () => {
         if (cantidad > 1) {
             setCantidad(cantidad - 1)
@@ -21,7 +21,7 @@ export const Counter = ({max, cantidad, setCantidad, agregar, agregado}) => {
             <div className="d-flex">
 
                 {
-                    agregado 
+                    agregado
                         ? <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
                         :
                         <div>
