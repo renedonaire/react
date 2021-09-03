@@ -1,9 +1,8 @@
 import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { UIContext } from '../../context/UIContext'
 
 export const ItemDetailContainer = () => {
 

@@ -26,7 +26,7 @@ export const ItemListContainer = () => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [catId])
+    }, [catId, setLoading])
 
     return (
         <>
