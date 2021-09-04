@@ -7,13 +7,13 @@ export const Item = ({ id, title, description, price, pictureUrl }) => {
     return (
         <div id={id} className="card col-4">
             <h3 className='item_title' >{title}</h3>
-            <Row className = "item_row">
+            <Row className="item_row">
                 <Col><img className='item_image' src={pictureUrl} alt={title} /></Col>
                 <Col><p className='item_description'>{description}</p></Col>
             </Row>
             <Row>
-                <Col className = 'item_col'><Link to={`/detail/${id}`} className="btn btn-outline-dark">Ver más</Link></Col>
-                <Col className = "item_col"><p className='item_price'>${price}</p></Col>
+                <Col className='item_col'><Link to={`/detail/${id}`} className="btn btn-outline-dark">Ver más</Link></Col>
+                <Col className="item_col"><p className='item_price'>${price}</p></Col>
             </Row>
         </div>
     )

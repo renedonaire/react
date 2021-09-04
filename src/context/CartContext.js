@@ -1,40 +1,30 @@
 import { createContext, useState } from "react";
 
-// creación del contexto
 export const CartContext = createContext()
 
-
-// custom provider
-
-export const CartProvider = ({children}) => {
-
+export const CartProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([])
-
-    const agregarAlCarrito = (prod) => {
+    const agregarAlCarrito = (producto) => {
         setCarrito([
             ...carrito,
-            prod
+            producto
         ])
     }
-
     const eliminarDelCarrito = (id) => {
-        setCarrito( carrito.filter(prod => prod.id !== id) )
+        setCarrito(carrito.filter(producto => producto.id !== id))
     }
-
     const cantidadCarrito = () => {
-        return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+        return carrito.reduce((count, producto) => count + producto.cantidad, 0)
     }
-
     const vaciarCarrito = () => {
         setCarrito([])
     }
-
     const isInCart = (id) => {
-        return carrito.some(el => el.id === id)
+        return carrito.some(prod => prod.id === id)
     }
 
     return (
-        <CartContext.Provider value={{carrito, isInCart, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito, vaciarCarrito}}>
+        <CartContext.Provider value={{ carrito, isInCart, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito, vaciarCarrito }}>
             {children}
         </CartContext.Provider>
     )

@@ -8,11 +8,8 @@ import "./ItemDetail.scss"
 export const ItemDetail = ({ id, title, category, description, description_full, price, pictureUrl, stock }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
-    const handleAdd = () => {
-        agregarAlCarrito({
-            category, id, title, description, pictureUrl, price, cantidad
-        })
-    }
+    const handleAdd = () => { agregarAlCarrito({ category, id, title, description, pictureUrl, price, cantidad }) }
+
     return (
         <Container>
             <h2 className='item_detail_title' >{title}</h2>
@@ -21,11 +18,11 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                 <Col>
                     <Row><p className='item_detail_description'>{description_full}</p></Row>
                     <Row>
-                        <Col><Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link></Col>
                         <Col>
-                            <Row>
-                                <p className='item_detail_price'>${price}</p>
-                            </Row>
+                            <Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link>
+                        </Col>
+                        <Col>
+                            <Row><p className='item_detail_price'>${price}</p></Row>
                             <Row>
                                 <Counter
                                     max={stock}

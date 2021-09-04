@@ -3,14 +3,11 @@ import { Row, Button } from 'react-bootstrap'
 import './Counter.scss'
 
 export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
-    console.log(agregado)
-
     const handleSumar = () => {
         if (cantidad < max) {
             setCantidad(cantidad + 1)
         }
     }
-
     const handleRestar = () => {
         if (cantidad > 1) {
             setCantidad(cantidad - 1)

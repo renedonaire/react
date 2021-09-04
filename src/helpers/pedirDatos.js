@@ -6,4 +6,4 @@ export const pedirDatos = () => {
             resolve(stock)
         }, 2000)
     })
-};
+}

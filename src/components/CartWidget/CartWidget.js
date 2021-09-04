@@ -5,11 +5,10 @@ import { CartContext } from '../../context/CartContext'
 import './CartWidget.scss'
 
 export const CartWidget = () => {
-
     const { cantidadCarrito } = useContext(CartContext)
 
     return (
-        <Link to="/cart"  className="carrito" >
+        <Link to="/cart" className="carrito" >
             <div>
                 <FaCartArrowDown />
                 <span>{cantidadCarrito()}</span>

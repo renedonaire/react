@@ -32,7 +32,7 @@ export const NavBar = () => {
                         Carro de compra
                     </Link>
                 </Nav>
-                <CartWidget/>
+                <CartWidget />
             </Container>
         </Navbar>
     );

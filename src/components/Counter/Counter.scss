@@ -1,30 +1,30 @@
 .rowCarro {
-    width: 70%;
-    justify-content: center;
+	width: 70%;
+	justify-content: center;
 }
 
 .btnCarro {
-    flex-direction: row;
-    align-items: center;
-    max-width: 20% !important;
+	flex-direction: row;
+	align-items: center;
+	max-width: 20% !important;
 }
 
 .btnCarroAgregar {
-    max-width: 65% !important;
-    margin-top: 1rem;
+	max-width: 65% !important;
+	margin-top: 1rem;
 }
 
 .cantidadCarro {
-    font-size: 1.5rem;
-    max-width: 15% !important;
-    margin: 0 1rem 0 1rem;
-    margin-top: 0.5rem;
+	font-size: 1.5rem;
+	max-width: 15% !important;
+	margin: 0 1rem 0 1rem;
+	margin-top: 0.5rem;
 }
 
 .cantidadCarro--disabled {
-    font-size: 1.5rem;
-    max-width: 15% !important;
-    margin: 0 1rem 0 1rem;
-    margin-top: 0.5rem;
-    color: lightgray;
+	font-size: 1.5rem;
+	max-width: 15% !important;
+	margin: 0 1rem 0 1rem;
+	margin-top: 0.5rem;
+	color: lightgray;
 }
