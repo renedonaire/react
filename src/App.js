@@ -6,7 +6,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 import { UIContextProvider } from "./context/UIContext"
 import { CartProvider } from "./context/CartContext"
-import {Carrito} from "./components/Carrito/Carrito"
+import { CartScreen } from "./components/CartScreen/CartScreen"
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
                                 <ItemDetailContainer />
                             </Route>
                             <Route exact path="/cart">
-                                <Carrito />
+                                <CartScreen/>
                             </Route>
                             <Route path="*">
                                 <Redirect to="/" />
