@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Button } from 'react-bootstrap'
 import './Counter.scss'
 
 export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
@@ -24,12 +24,17 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
                     ?
                     <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
                     :
-                    <div>
-                        <Col><Button variant="outline-dark" onClick={handleRestar}>-</Button></Col>
-                        <Col><p>{cantidad}</p></Col>
-                        <Col><Button variant="outline-dark" onClick={handleSumar}>+</Button></Col>
-                        <Button variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
-                    </div>
+                    <>
+                        <Row className="rowCarro">
+                        <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
+                        <p className="btnCarro" >{cantidad}</p>
+                        <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
+                        </Row>
+
+                        <Row className="rowCarro">
+                        <Button className="btnCarroAgregar" variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
+                        </Row>
+                    </>
             }
         </Row>
     )

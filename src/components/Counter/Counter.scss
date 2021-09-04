@@ -1,0 +1,16 @@
+.rowCarro {
+    width: 70%;
+    justify-content: center;
+}
+
+.btnCarro {
+    flex-direction: row;
+    align-items: center;
+    max-width: 15% !important;
+    margin: 0 1rem 0 1rem;
+}
+
+.btnCarroAgregar {
+    max-width: 70% !important;
+    margin-top: 1rem;
+}

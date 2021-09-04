@@ -23,14 +23,18 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                     <Row>
                         <Col><Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link></Col>
                         <Col>
-                            <p className='item_detail_price'>${price}</p>
-                            <Counter
-                                max={stock}
-                                cantidad={cantidad}
-                                setCantidad={setCantidad}
-                                agregar={handleAdd}
-                                agregado={isInCart(id)}
-                            />
+                            <Row>
+                                <p className='item_detail_price'>${price}</p>
+                            </Row>
+                            <Row>
+                                <Counter
+                                    max={stock}
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad}
+                                    agregar={handleAdd}
+                                    agregado={isInCart(id)}
+                                />
+                            </Row>
                         </Col>
                     </Row>
                 </Col>
