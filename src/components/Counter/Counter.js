@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+
 export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
     console.log(agregado)
 
@@ -17,7 +18,7 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
 
     return (
         <>
-            <div className="d-flex">
+            <Row>
 
                 {
                     agregado
@@ -33,7 +34,7 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
 
 
 
-            </div>
+            </Row>
         </>
     )
 }
