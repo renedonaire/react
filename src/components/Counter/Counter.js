@@ -22,17 +22,25 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
             {
                 agregado
                     ?
-                    <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                    <>
+                        <Row className="rowCarro">
+                            <Button className="btnCarro" variant="light" disabled>-</Button>
+                            <p className="cantidadCarro--disabled" >{cantidad}</p>
+                            <Button className="btnCarro" variant="light" disabled>+</Button>
+                        </Row>
+                        <Row className="rowCarro">
+                            <Link to="/cart" className="btn btn-outline-dark btnCarroAgregar">Ir al Carro</Link>
+                        </Row>
+                    </>
                     :
                     <>
                         <Row className="rowCarro">
-                        <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
-                        <p className="btnCarro" >{cantidad}</p>
-                        <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
+                            <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
+                            <p className="cantidadCarro" >{cantidad}</p>
+                            <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
                         </Row>
-
                         <Row className="rowCarro">
-                        <Button className="btnCarroAgregar" variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
+                            <Button className="btnCarroAgregar" variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
                         </Row>
                     </>
             }

@@ -6,11 +6,25 @@
 .btnCarro {
     flex-direction: row;
     align-items: center;
-    max-width: 15% !important;
-    margin: 0 1rem 0 1rem;
+    max-width: 20% !important;
 }
 
 .btnCarroAgregar {
-    max-width: 70% !important;
+    max-width: 65% !important;
     margin-top: 1rem;
+}
+
+.cantidadCarro {
+    font-size: 1.5rem;
+    max-width: 15% !important;
+    margin: 0 1rem 0 1rem;
+    margin-top: 0.5rem;
+}
+
+.cantidadCarro--disabled {
+    font-size: 1.5rem;
+    max-width: 15% !important;
+    margin: 0 1rem 0 1rem;
+    margin-top: 0.5rem;
+    color: lightgray;
 }
