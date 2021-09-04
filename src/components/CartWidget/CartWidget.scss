@@ -1,9 +1,11 @@
 .carrito {
+	text-decoration: none;
 	font-size: 30px;
 	color: white;
 
 	span {
-		font-size: 14px;
+		margin-left: 0.5rem;
+		font-size: 18px;
         color: orangered;
 	}
 }
