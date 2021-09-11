@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import { UIContext } from '../../context/UIContext'
-import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemList } from '../ItemList/ItemList'
+import { getFirestore } from '../../firebase/FirebaseConfig'
 import './ItemListContainer.scss'
 
 export const ItemListContainer = () => {
@@ -13,19 +13,29 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-            .then(res => {
-                if (catId) {
-                    const arrayFiltrado = res.filter(prod => prod.category === catId)
-                    setData(arrayFiltrado)
-                } else {
-                    setData(res)
-                }
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+        const database = getFirestore()
+        const productos = database.collection('productos')
+
+        if (catId) {
+            const productosFiltrado = productos.where('category', '==', catId)
+            productosFiltrado.get()
+                .then((response) => {
+                    const data = response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+                    setData(data)
+                })
+                .finally(() => {
+                    setLoading(false)
+                })
+        } else {
+            productos.get()
+                .then((response) => {
+                    const data = response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+                    setData(data)
+                })
+                .finally(() => {
+                    setLoading(false)
+                })
+        }
     }, [catId, setLoading])
 
     return (
