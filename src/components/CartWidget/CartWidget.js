@@ -7,12 +7,18 @@ import './CartWidget.scss'
 export const CartWidget = () => {
     const { cantidadCarrito } = useContext(CartContext)
 
-    return (
-        <Link to="/cart" className="carrito" >
-            <div>
-                <FaCartArrowDown />
-                <span>{cantidadCarrito()}</span>
-            </div>
-        </Link>
-    )
+    if (cantidadCarrito() > 0) {
+        return (
+            <Link to="/cart" className="carrito" >
+                <div>
+                    <FaCartArrowDown />
+                    <span>{cantidadCarrito()}</span>
+                </div>
+            </Link>
+        )
+    } else {
+        return (
+            <></>
+        )
+    }
 }
