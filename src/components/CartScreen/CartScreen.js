@@ -6,7 +6,7 @@ import { CartItem } from '../CartItem/CartItem'
 import "./CartScreen.scss"
 
 export const CartScreen = () => {
-    const { carrito, vaciarCarrito } = useContext(CartContext)
+    const { carrito } = useContext(CartContext)
 
     return (
         <Container>
