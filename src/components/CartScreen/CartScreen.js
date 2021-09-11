@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
 import { CartContext } from '../../context/CartContext'
+import { CartCheckout } from '../CartCheckout/CartCheckout'
 import { CartItem } from '../CartItem/CartItem'
 import "./CartScreen.scss"
 
@@ -17,7 +18,7 @@ export const CartScreen = () => {
                     </Row>
                 </Col>
                 <Col>
-                    <button className="btn btn-danger fijarTop" onClick={vaciarCarrito}>Vaciar carrito</button>
+                    <CartCheckout/>
                 </Col>
             </Row>
         </Container>
