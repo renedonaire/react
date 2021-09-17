@@ -30,16 +30,23 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
                         </Row>
                     </>
                     :
-                    <>
-                        <Row className="rowCarro">
-                            <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
-                            <p className="cantidadCarro" >{cantidad}</p>
-                            <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
-                        </Row>
-                        <Row className="rowCarro">
-                            <Button className="btnCarroAgregar" variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
-                        </Row>
-                    </>
+                    max > 0 ?
+                        <>
+                            <Row className="rowCarro">
+                                <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
+                                <p className="cantidadCarro" >{max}</p>
+                                <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
+                            </Row>
+                            <Row className="rowCarro">
+                                <Button className="btnCarroAgregar" variant="outline-dark" onClick={agregar}>Agregar al carro</Button>
+                            </Row>
+                        </>
+                        :
+                        <>
+                            <Row>
+                                <p>Lo sentimos, este producto no tiene stock.</p>
+                            </Row>
+                        </>
             }
         </Row>
     )
