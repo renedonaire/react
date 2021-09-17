@@ -34,7 +34,7 @@ export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
                         <>
                             <Row className="rowCarro">
                                 <Button className="btnCarro" variant="outline-dark" onClick={handleRestar}>-</Button>
-                                <p className="cantidadCarro" >{max}</p>
+                                <p className="cantidadCarro" >{cantidad}</p>
                                 <Button className="btnCarro" variant="outline-dark" onClick={handleSumar}>+</Button>
                             </Row>
                             <Row className="rowCarro">

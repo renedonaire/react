@@ -16,7 +16,9 @@ export const ItemDetail = ({ id, title, category, description, description_full,
             <Row className="item_detail_row">
                 <Col className="item_detail_book" lg={4}><img className='item_detail_image' src={pictureUrl} alt={title} /></Col>
                 <Col>
-                    <Row><p className='item_detail_description'>{description_full}</p></Row>
+                    <Row>
+                        <p className='item_detail_description'>{description_full}<br/>Stock: {stock}</p>
+                    </Row>
                     <Row>
                         <Col>
                             <Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link>
