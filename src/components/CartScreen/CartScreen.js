@@ -18,7 +18,7 @@ export const CartScreen = () => {
                     </Row>
                 </Col>
                 <Col>
-                    <CartCheckout/>
+                    <CartCheckout />
                 </Col>
             </Row>
         </Container>

@@ -26,7 +26,7 @@ export const Checkout = () => {
                 .then(response => {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Tu compra fue completada',
+                        title: `${datosUsuario.nombre} tu compra fue completada`,
                         text: `Tu número de ticket: ${response}`,
                         confirmButtonText: 'Volver'
                     })
