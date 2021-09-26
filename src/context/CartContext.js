@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
         return carrito.some(prod => prod.id === id)
     }
     const precioTotal = () => {
-        return carrito.reduce((importe, producto) => importe + producto.price, 0)
+        return carrito.reduce((importe, producto) => importe + (producto.price * producto.cantidad), 0)
     }
 
     return (

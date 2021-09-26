@@ -4,7 +4,7 @@ import './Item.scss'
 import { Link } from 'react-router-dom'
 
 export const Item = ({ id, title, description, price, pictureUrl, stock }) => {
-   const pricePesos = price.toLocaleString('de-DE')
+    const pricePesos = price.toLocaleString('de-DE')
 
     return (
         <div id={id} className="card col-4">

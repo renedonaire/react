@@ -1,3 +1,14 @@
-.card-body {
+.card-title{
+	height: 30%;
+	text-align: center;
+}
+
+.card-text{
+	text-align: center;
+}
+
+.card-btn{
+	display: flex;
+	justify-content: center;
 	text-align: center;
 }

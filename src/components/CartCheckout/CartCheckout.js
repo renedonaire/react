@@ -6,13 +6,14 @@ import "./CartCheckout.scss"
 
 export const CartCheckout = () => {
     const { vaciarCarrito, precioTotal, cantidadCarrito } = useContext(CartContext)
+    const precioTotalPesos = precioTotal().toLocaleString('de-DE')
 
     if (cantidadCarrito() > 0) {
         return (
             <Container>
                 <Row className="cartCheckout_row">
                     <h3>Tienes {cantidadCarrito()} libro(s) en tu carro</h3>
-                    <h4>El total de tu compra: ${precioTotal()}</h4>
+                    <h4>El total de tu compra: ${precioTotalPesos}</h4>
                 </Row>
                 <Row className="cartCheckout_row">
                     <Link to="/checkout" >
