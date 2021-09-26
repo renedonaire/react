@@ -9,6 +9,7 @@ export const ItemDetail = ({ id, title, category, description, description_full,
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
     const handleAdd = () => { agregarAlCarrito({ category, id, title, description, pictureUrl, price, cantidad }) }
+    const pricePesos = price.toLocaleString('de-DE')
 
     return (
         <Container>
@@ -24,7 +25,7 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                             <Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link>
                         </Col>
                         <Col>
-                            <Row><p className='item_detail_price'>${price}</p></Row>
+                            <Row><p className='item_detail_price'>${pricePesos}</p></Row>
                             <Row>
                                 <Counter
                                     max={stock}
