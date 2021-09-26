@@ -3,7 +3,8 @@ import { Row, Col } from 'react-bootstrap'
 import './Item.scss'
 import { Link } from 'react-router-dom'
 
-export const Item = ({ id, title, description, price, pictureUrl, stock }) => {
+export const Item = ({ id, title, description, price, pictureUrl, stock }) => {    
+    console.log(pictureUrl);
     return (
         <div id={id} className="card col-4">
             <h3 className='item_title' >{title}</h3>

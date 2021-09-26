@@ -2,8 +2,8 @@ import React from "react"
 import { Nav, Navbar, Container } from "react-bootstrap"
 import { CartWidget } from "../CartWidget/CartWidget"
 import "./NavBar.scss"
-import logo from "../images/logo.svg"
 import { Link } from "react-router-dom"
+import { Imagenes } from '../images/ImageIndex'
 
 export const NavBar = () => {
     return (
@@ -11,7 +11,7 @@ export const NavBar = () => {
             <Container>
                 <Link className="logo" to="/">
                     <img
-                        src={logo}
+                        src={Imagenes.logo}
                         width="200"
                         height="45"
                         className="d-inline-block "
