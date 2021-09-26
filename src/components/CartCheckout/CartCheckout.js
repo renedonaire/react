@@ -7,12 +7,19 @@ import "./CartCheckout.scss"
 export const CartCheckout = () => {
     const { vaciarCarrito, precioTotal, cantidadCarrito } = useContext(CartContext)
     const precioTotalPesos = precioTotal().toLocaleString('de-DE')
+    function singular(num) {
+        if (num>1) {
+            return "s"
+        } else {
+            return ""
+        }
+    }
 
     if (cantidadCarrito() > 0) {
         return (
             <Container>
                 <Row className="cartCheckout_row">
-                    <h3>Tienes {cantidadCarrito()} libro(s) en tu carro</h3>
+                    <h3>Tienes {cantidadCarrito()} libro{singular(cantidadCarrito())} en tu carro</h3>
                     <h4>El total de tu compra: ${precioTotalPesos}</h4>
                 </Row>
                 <Row className="cartCheckout_row">
@@ -21,7 +28,9 @@ export const CartCheckout = () => {
                     </Link>
                 </Row>
                 <Row className="cartCheckout_row">
-                    <button className="btn btn-outline-danger cartCheckout_btn" onClick={vaciarCarrito}>Vaciar carrito</button>
+                    <Link>
+                        <button className="btn btn-outline-danger cartCheckout_btn" onClick={vaciarCarrito}>Vaciar carrito</button>
+                    </Link>
                 </Row>
             </Container>
         )
