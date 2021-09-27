@@ -15,7 +15,6 @@ export const ItemListContainer = () => {
         setLoading(true)
         const database = getFirestore()
         const productos = database.collection('productos').where('stock', '>', 0) 
-        console.log(productos);
 
         if (catId) {
             const productosFiltrado = productos.where('category', '==', catId)

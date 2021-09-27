@@ -1,5 +1,5 @@
 import React from "react"
-import { Nav, Navbar, Container } from "react-bootstrap"
+import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap"
 import { CartWidget } from "../CartWidget/CartWidget"
 import "./NavBar.scss"
 import { Link } from "react-router-dom"
@@ -21,12 +21,18 @@ export const NavBar = () => {
                     <Link className="nav_link" to={"/"}>
                         Inicio
                     </Link>
-                    <Link className="nav_link" to={"/category/novedades"}>
-                        Novedades
-                    </Link>
-                    <Link className="nav_link" to={"/category/ficcion"}>
-                        Ficción
-                    </Link>
+                    <NavDropdown title="Categorías" id="nav-dropdown">
+                        <NavDropdown.Item>
+                            <Link className="nav_link-desplegable" to={"/category/novedades"}>
+                                Novedades
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <Link className="nav_link-desplegable" to={"/category/ficcion"}>
+                                Ficción
+                            </Link>
+                        </NavDropdown.Item>
+                    </NavDropdown>
                     <Link className="nav_link" to={"/cart"}>
                         Carro de compra
                     </Link>
