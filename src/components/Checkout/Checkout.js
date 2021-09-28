@@ -16,19 +16,61 @@ export const Checkout = () => {
         email_2: "",
     })
 
-    const [estadoNombre, setEstadoNombre] = useState()
+    const [estadoForm, setEstadoForm] = useState({
+        estadoNombre: "null",
+        estadoTelefono: "null",
+        estadoEmail_1: "null",
+        estadoEmail_2: "null",
+    })
 
     useEffect(() => {
-        console.log(estadoNombre);
-    }, [estadoNombre])
+        console.log(estadoForm);
+    }, [estadoForm])
 
-    const validaInput = (datosUsuario) => {
-        let arrayControl=[]
+    const validaNombre = (datosUsuario) => {
         if (datosUsuario.nombre.length > 3) {
-            setEstadoNombre("formOK")
+            setEstadoForm({
+            ...estadoForm,
+            estadoNombre: "formOK"
+            })
             return true
         } else {
-            setEstadoNombre("formError")
+            setEstadoForm({
+            ...estadoForm,
+            estadoNombre: "formError"
+            })
+            return false
+        }
+    }
+
+    const validaTelefono = (datosUsuario) => {
+        if (datosUsuario.telefono.length > 8) {
+            setEstadoForm({
+            ...estadoForm,
+            estadoTelefono: "formOK"
+            })
+            return true
+        } else {
+            setEstadoForm({
+            ...estadoForm,
+            estadoTelefono: "formError"
+            })
+            return false
+        }
+    }
+
+    const validaCorreo = (datosUsuario) => {
+        if (datosUsuario.email_1.length > 6 && datosUsuario.email_1 === datosUsuario.email_2) {
+            setEstadoForm({
+            ...estadoForm,
+            estadoEmail_1: "formOK"
+            })
+            return true
+        } else {
+            setEstadoForm({
+            ...estadoForm,
+            estadoEmail_2: "formError"
+            })
             return false
         }
     }
@@ -42,8 +84,7 @@ export const Checkout = () => {
 
     const handleComprar = (event) => {
         event.preventDefault()
-        // if (datosUsuario.nombre.length > 3 && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
-        if (validaInput(datosUsuario) && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
+        if (validaCorreo(datosUsuario) && validaTelefono(datosUsuario) && validaNombre(datosUsuario)) {
             generarOrden(datosUsuario, carrito, precioTotal())
                 .then(response => {
                     Swal.fire({
@@ -82,7 +123,7 @@ export const Checkout = () => {
                         <form className="checkout_form" onSubmit={handleComprar}>
                             <Row className="checkout_row">
                                 <input
-                                    className={estadoNombre}
+                                    className={estadoForm.estadoNombre}
                                     type="text"
                                     value={datosUsuario.nombre}
                                     onChange={handleInputUser}
@@ -93,6 +134,7 @@ export const Checkout = () => {
                             </Row>
                             <Row className="checkout_row">
                                 <input
+                                    className={estadoForm.estadoTelefono}
                                     type="text"
                                     value={datosUsuario.telefono}
                                     onChange={handleInputUser}
@@ -103,6 +145,7 @@ export const Checkout = () => {
                             </Row>
                             <Row className="checkout_row">
                                 <input
+                                    className={estadoForm.estadoEmail_1}
                                     type="email"
                                     value={datosUsuario.email_1}
                                     onChange={handleInputUser}
@@ -113,6 +156,7 @@ export const Checkout = () => {
                             </Row>
                             <Row className="checkout_row">
                                 <input
+                                    className={estadoForm.estadoEmail_2}
                                     type="email"
                                     value={datosUsuario.email_2}
                                     onChange={handleInputUser}
