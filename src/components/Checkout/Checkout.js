@@ -8,17 +8,21 @@ import "../Checkout/Checkout.scss"
 
 export const Checkout = () => {
     const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
+
     const [datosUsuario, setDatosUsuario] = useState({
         nombre: "",
-        email: "",
         telefono: "",
+        email_1: "",
+        email_2: "",
     })
+
     const handleInputUser = (dato) => {
         setDatosUsuario({
             ...datosUsuario,
             [dato.target.name]: dato.target.value
         })
     }
+
     const handleComprar = (event) => {
         event.preventDefault()
         if (datosUsuario.nombre.length > 3 && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
@@ -81,10 +85,20 @@ export const Checkout = () => {
                             <Row className="checkout_row">
                                 <input
                                     type="email"
-                                    value={datosUsuario.email}
+                                    value={datosUsuario.email_1}
                                     onChange={handleInputUser}
                                     name="email"
                                     placeholder="email"
+                                    required
+                                />
+                            </Row>
+                            <Row className="checkout_row">
+                                <input
+                                    type="email"
+                                    value={datosUsuario.email_2}
+                                    onChange={handleInputUser}
+                                    name="email"
+                                    placeholder="Repite tu email"
                                     required
                                 />
                             </Row>
