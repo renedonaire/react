@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { Redirect } from 'react-router'
 import Swal from 'sweetalert2'
@@ -16,6 +16,23 @@ export const Checkout = () => {
         email_2: "",
     })
 
+    const [estadoNombre, setEstadoNombre] = useState()
+
+    useEffect(() => {
+        console.log(estadoNombre);
+    }, [estadoNombre])
+
+    const validaInput = (datosUsuario) => {
+        let arrayControl=[]
+        if (datosUsuario.nombre.length > 3) {
+            setEstadoNombre("formOK")
+            return true
+        } else {
+            setEstadoNombre("formError")
+            return false
+        }
+    }
+
     const handleInputUser = (dato) => {
         setDatosUsuario({
             ...datosUsuario,
@@ -25,7 +42,8 @@ export const Checkout = () => {
 
     const handleComprar = (event) => {
         event.preventDefault()
-        if (datosUsuario.nombre.length > 3 && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
+        // if (datosUsuario.nombre.length > 3 && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
+        if (validaInput(datosUsuario) && datosUsuario.email.length > 6 && datosUsuario.telefono.length > 8) {
             generarOrden(datosUsuario, carrito, precioTotal())
                 .then(response => {
                     Swal.fire({
@@ -64,6 +82,7 @@ export const Checkout = () => {
                         <form className="checkout_form" onSubmit={handleComprar}>
                             <Row className="checkout_row">
                                 <input
+                                    className={estadoNombre}
                                     type="text"
                                     value={datosUsuario.nombre}
                                     onChange={handleInputUser}
@@ -87,7 +106,7 @@ export const Checkout = () => {
                                     type="email"
                                     value={datosUsuario.email_1}
                                     onChange={handleInputUser}
-                                    name="email"
+                                    name="email_1"
                                     placeholder="email"
                                     required
                                 />
@@ -97,7 +116,7 @@ export const Checkout = () => {
                                     type="email"
                                     value={datosUsuario.email_2}
                                     onChange={handleInputUser}
-                                    name="email"
+                                    name="email_2"
                                     placeholder="Repite tu email"
                                     required
                                 />
