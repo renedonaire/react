@@ -8,71 +8,50 @@ import "../Checkout/Checkout.scss"
 
 export const Checkout = () => {
     const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
-
+    
     const [datosUsuario, setDatosUsuario] = useState({
         nombre: "",
         telefono: "",
         email_1: "",
         email_2: "",
     })
-
+    
     const [estadoForm, setEstadoForm] = useState({
-        estadoNombre: "null",
-        estadoTelefono: "null",
-        estadoEmail_1: "null",
-        estadoEmail_2: "null",
+        estadoNombre: "",
+        estadoTelefono: "",
+        estadoEmail_1: "",
+        estadoEmail_2: "",
     })
-
+    
     useEffect(() => {
-        console.log(estadoForm);
-    }, [estadoForm])
+    }, [estadoForm, setEstadoForm])
 
-    const validaNombre = (datosUsuario) => {
+    const validaDatos = (datosUsuario) => {
+        let arrayControl = []
         if (datosUsuario.nombre.length > 3) {
-            setEstadoForm({
-            ...estadoForm,
-            estadoNombre: "formOK"
-            })
-            return true
+            estadoForm.estadoNombre = "formOK"
+            arrayControl.push(true)
         } else {
-            setEstadoForm({
-            ...estadoForm,
-            estadoNombre: "formError"
-            })
-            return false
+            estadoForm.estadoNombre = "formError"
+            arrayControl.push(false)
         }
-    }
-
-    const validaTelefono = (datosUsuario) => {
         if (datosUsuario.telefono.length > 8) {
-            setEstadoForm({
-            ...estadoForm,
-            estadoTelefono: "formOK"
-            })
-            return true
+            estadoForm.estadoTelefono = "formOK"
+            arrayControl.push(true)
         } else {
-            setEstadoForm({
-            ...estadoForm,
-            estadoTelefono: "formError"
-            })
-            return false
+            estadoForm.estadoTelefono = "formError"
+            arrayControl.push(true)
         }
-    }
-
-    const validaCorreo = (datosUsuario) => {
         if (datosUsuario.email_1.length > 6 && datosUsuario.email_1 === datosUsuario.email_2) {
-            setEstadoForm({
-            ...estadoForm,
-            estadoEmail_1: "formOK"
-            })
-            return true
+            estadoForm.estadoEmail_1 = "formOK"
+            arrayControl.push(true)
         } else {
-            setEstadoForm({
-            ...estadoForm,
-            estadoEmail_2: "formError"
-            })
-            return false
+            estadoForm.estadoEmail_2 = "formError"
+            arrayControl.push(true)
         }
+        console.log(estadoForm);
+        console.log(arrayControl);
+        return !arrayControl.includes(false)
     }
 
     const handleInputUser = (dato) => {
@@ -84,7 +63,7 @@ export const Checkout = () => {
 
     const handleComprar = (event) => {
         event.preventDefault()
-        if (validaCorreo(datosUsuario) && validaTelefono(datosUsuario) && validaNombre(datosUsuario)) {
+        if (validaDatos(datosUsuario)) {
             generarOrden(datosUsuario, carrito, precioTotal())
                 .then(response => {
                     Swal.fire({
@@ -105,11 +84,12 @@ export const Checkout = () => {
         } else {
             Swal.fire({
                 icon: 'error',
-                title: 'Falta información',
-                text: 'Revisa tus datos'
+                title: 'Revisar:',
+                text: 'Error en tus datos'
             })
         }
     }
+
 
     return (
         <Container>
