@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { Redirect } from 'react-router'
 import Swal from 'sweetalert2'
@@ -16,41 +16,39 @@ export const Checkout = () => {
         email_2: "",
     })
     
-    const [estadoForm, setEstadoForm] = useState({
-        estadoNombre: "",
-        estadoTelefono: "",
-        estadoEmail_1: "",
-        estadoEmail_2: "",
-    })
-    
-    useEffect(() => {
-    }, [estadoForm, setEstadoForm])
+    let [claseTelefono, setclaseTelefono] = useState("")
+    let [claseNombre, setclaseNombre] = useState("")
+    let [claseEmail_1, setclaseEmail_1] = useState("")
+    let [claseEmail_2, setclaseEmail_2] = useState("")
 
     const validaDatos = (datosUsuario) => {
         let arrayControl = []
         if (datosUsuario.nombre.length > 3) {
-            estadoForm.estadoNombre = "formOK"
+            setclaseNombre( claseNombre = "formOK")
             arrayControl.push(true)
         } else {
-            estadoForm.estadoNombre = "formError"
+            setclaseNombre( claseNombre = "formError")
             arrayControl.push(false)
         }
+
         if (datosUsuario.telefono.length > 8) {
-            estadoForm.estadoTelefono = "formOK"
+            setclaseTelefono( claseTelefono = "formOK")
             arrayControl.push(true)
         } else {
-            estadoForm.estadoTelefono = "formError"
-            arrayControl.push(true)
+            setclaseTelefono( claseTelefono = "formError")
+            arrayControl.push(false)
         }
-        if (datosUsuario.email_1.length > 6 && datosUsuario.email_1 === datosUsuario.email_2) {
-            estadoForm.estadoEmail_1 = "formOK"
+
+        if (datosUsuario.email_1.length>0 && datosUsuario.email_1 === datosUsuario.email_2) {
+            setclaseEmail_1(claseEmail_1 = "formOK")
+            setclaseEmail_2( claseEmail_2 = "formOK")
             arrayControl.push(true)
         } else {
-            estadoForm.estadoEmail_2 = "formError"
-            arrayControl.push(true)
+            setclaseEmail_1(claseEmail_1 = "formError")
+            setclaseEmail_2( claseEmail_2 = "formError")
+            arrayControl.push(false)
         }
-        console.log(estadoForm);
-        console.log(arrayControl);
+
         return !arrayControl.includes(false)
     }
 
@@ -59,6 +57,7 @@ export const Checkout = () => {
             ...datosUsuario,
             [dato.target.name]: dato.target.value
         })
+        validaDatos(datosUsuario)
     }
 
     const handleComprar = (event) => {
@@ -102,30 +101,33 @@ export const Checkout = () => {
                     <Col className="checkout_col">
                         <form className="checkout_form" onSubmit={handleComprar}>
                             <Row className="checkout_row">
+                                <label for="nombre">Nombre</label>
                                 <input
-                                    className={estadoForm.estadoNombre}
+                                    className={claseNombre}
                                     type="text"
                                     value={datosUsuario.nombre}
                                     onChange={handleInputUser}
                                     name="nombre"
-                                    placeholder="Tu nombre"
+                                    placeholder="Tres o más caracteres"
                                     required
                                 />
                             </Row>
                             <Row className="checkout_row">
+                                <label for="telefono">Teléfono</label>
                                 <input
-                                    className={estadoForm.estadoTelefono}
+                                    className={claseTelefono}
                                     type="text"
                                     value={datosUsuario.telefono}
                                     onChange={handleInputUser}
                                     name="telefono"
-                                    placeholder="Tu teléfono"
+                                    placeholder="Ocho o más caracteres"
                                     required
                                 />
                             </Row>
                             <Row className="checkout_row">
+                                <label for="email_1">email</label>
                                 <input
-                                    className={estadoForm.estadoEmail_1}
+                                    className={claseEmail_1}
                                     type="email"
                                     value={datosUsuario.email_1}
                                     onChange={handleInputUser}
@@ -135,8 +137,9 @@ export const Checkout = () => {
                                 />
                             </Row>
                             <Row className="checkout_row">
+                                <label for="email_2">Repite tu email</label>
                                 <input
-                                    className={estadoForm.estadoEmail_2}
+                                    className={claseEmail_2}
                                     type="email"
                                     value={datosUsuario.email_2}
                                     onChange={handleInputUser}
