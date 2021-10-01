@@ -5,6 +5,7 @@ import { Counter } from '../Counter/Counter'
 import { Container, Row, Col } from 'react-bootstrap'
 import "./ItemDetail.scss"
 
+
 export const ItemDetail = ({ id, title, category, description, description_full, price, pictureUrl, stock }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)

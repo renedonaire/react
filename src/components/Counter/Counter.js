@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Row, Button } from 'react-bootstrap'
 import './Counter.scss'
 
+
 export const Counter = ({ max, cantidad, setCantidad, agregar, agregado }) => {
     const handleSumar = () => {
         if (cantidad < max) {

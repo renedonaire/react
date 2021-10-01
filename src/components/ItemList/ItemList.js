@@ -3,6 +3,7 @@ import { Item } from '../Item/Item'
 import './ItemList.scss'
 import { useParams } from 'react-router-dom'
 
+
 export const ItemList = ({ cat, productos = [] }) => {
     const { catId } = useParams()
     let title = ""

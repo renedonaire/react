@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import './Item.scss'
 import { Link } from 'react-router-dom'
 
+
 export const Item = ({ id, title, description, price, pictureUrl, stock }) => {
     const pricePesos = price.toLocaleString('de-DE')
 

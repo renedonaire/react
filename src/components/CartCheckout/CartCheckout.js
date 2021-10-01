@@ -4,11 +4,12 @@ import { Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import "./CartCheckout.scss"
 
+
 export const CartCheckout = () => {
     const { vaciarCarrito, precioTotal, cantidadCarrito } = useContext(CartContext)
     const precioTotalPesos = precioTotal().toLocaleString('de-DE')
     function singular(num) {
-        if (num>1) {
+        if (num > 1) {
             return "s"
         } else {
             return ""

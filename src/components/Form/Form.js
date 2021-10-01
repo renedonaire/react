@@ -6,6 +6,7 @@ import { CartContext } from '../../context/CartContext'
 import { UIContext } from '../../context/UIContext'
 import "./Form.scss"
 
+
 export const Form = () => {
   const { carrito, vaciarCarrito, precioTotal } = useContext(CartContext)
   const intialValues = { nombre: "", telefono: "", email_1: "", email_2: "" };
@@ -53,31 +54,26 @@ export const Form = () => {
   const validate = (values) => {
     let errors = {};
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
-
     if (!values.nombre) {
       errors.nombre = "Se requiere tu nombre";
     } else if (values.nombre.length < 3) {
       errors.nombre = "Nombre debe tener más de 3 caracteres";
     }
-
     if (!values.telefono) {
       errors.telefono = "Se necesita teléfono";
     } else if (values.nombre.telefono < 8) {
       errors.telefono = "Teléfono de 8 dígitos o más";
     }
-
     if (!values.email_1) {
       errors.email_1 = "Se requiere tu email";
     } else if (!regexEmail.test(values.email_1)) {
       errors.email_1 = "Formato de email inválido";
     }
-
     if (!values.email_2) {
       errors.email_2 = "Repite tu email";
     } else if (!(values.email_2 === values.email_1)) {
       errors.email_2 = "Los email no concuerdan";
     }
-
     return errors;
   }
 
@@ -108,7 +104,6 @@ export const Form = () => {
                 <span className="form_error">{formErrors.nombre}</span>
               )}
             </Row>
-
             <Row className="form_row">
               <input
                 placeholder="Teléfono"
@@ -123,7 +118,6 @@ export const Form = () => {
                 <span className="form_error">{formErrors.telefono}</span>
               )}
             </Row>
-
             <Row className="form_row">
               <input
                 placeholder="E-mail"
@@ -138,7 +132,6 @@ export const Form = () => {
                 <span className="form_error">{formErrors.email_1}</span>
               )}
             </Row>
-
             <Row className="form_row">
               <input
                 placeholder="Confirma tu e-mail"
@@ -153,11 +146,9 @@ export const Form = () => {
                 <span className="form_error">{formErrors.email_2}</span>
               )}
             </Row>
-
             <Row className="form_row">
               <button type="submit" className="btn btn-success form_btn">Hacer pedido</button>
             </Row>
-
           </form>
         </Col>
       }

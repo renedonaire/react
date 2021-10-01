@@ -6,6 +6,7 @@ import { ItemList } from '../ItemList/ItemList'
 import { getFirestore } from '../../firebase/FirebaseConfig'
 import './ItemListContainer.scss'
 
+
 export const ItemListContainer = () => {
     const { loading, setLoading } = useContext(UIContext)
     const { catId } = useParams()
@@ -14,7 +15,7 @@ export const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
         const database = getFirestore()
-        const productos = database.collection('productos').where('stock', '>', 0) 
+        const productos = database.collection('productos').where('stock', '>', 0)
 
         if (catId) {
             const productosFiltrado = productos.where('category', '==', catId)
@@ -37,6 +38,7 @@ export const ItemListContainer = () => {
                 })
         }
     }, [catId, setLoading])
+
 
     return (
         <>

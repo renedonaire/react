@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/FirebaseConfig'
 
+
 export const ItemDetailContainer = () => {
     const { itemId } = useParams()
     const [item, setItem] = useState(null)
@@ -22,6 +23,7 @@ export const ItemDetailContainer = () => {
             })
             .finally(() => { setLoading(false) })
     }, [itemId, setLoading])
+
 
     return (
         <>

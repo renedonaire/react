@@ -4,6 +4,7 @@ import { CartWidget } from "../CartWidget/CartWidget"
 import "./NavBar.scss"
 import { Link } from "react-router-dom"
 
+
 export const NavBar = () => {
     return (
         <Navbar sticky="top" bg="dark" variant="dark">
@@ -40,5 +41,5 @@ export const NavBar = () => {
                 <CartWidget />
             </Container>
         </Navbar>
-    );
+    )
 }
