@@ -1,123 +1,153 @@
-import './Form.scss'
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react"
 import Swal from 'sweetalert2'
 import { generarOrden } from '../../firebase/GenerarOrden'
 import { CartContext } from '../../context/CartContext'
+import "./Form.scss"
 
-
-
-import "./Form.scss";
 export const Form = () => {
-      const { carrito, vaciarCarrito, precioTotal } = useContext(CartContext)
+  const { carrito, vaciarCarrito, precioTotal } = useContext(CartContext)
 
-  const intialValues = { email: "", password: "" };
-
-  const [formValues, setFormValues] = useState(intialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const intialValues = { nombre: "", telefono: "", email_1: "", email_2: "" };
+  const [formValues, setFormValues] = useState(intialValues)
+  const [formErrors, setFormErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const submit = () => {
-    console.log(formValues);
-            // if (formErrors.length === 0) {
-            generarOrden(formValues, carrito, precioTotal())
-                .then(response => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: `${formValues.name} tu compra fue completada`,
-                        text: `Tu número de ticket: ${response}`,
-                        confirmButtonText: 'Volver'
-                    })
-                    vaciarCarrito()
-                })
-                .catch(err => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error:',
-                        text: `${err}`,
-                    })
-                })
-        // } 
-  };
+    console.log(formValues)
+    generarOrden(formValues, carrito, precioTotal())
+      .then(response => {
+        Swal.fire({
+          icon: 'success',
+          title: `${formValues.name} tu compra fue completada`,
+          text: `Tu número de ticket: ${response}`,
+          confirmButtonText: 'Volver'
+        })
+        vaciarCarrito()
+      })
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error:',
+          text: `${err}`,
+        })
+      })
+  }
 
   //input change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-  };
+  }
 
   //form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmitting(true);
+    if (Object.keys(formErrors).length === 0 && isSubmitting) {
+      submit();
+    }
   }
 
   //form validation handler
   const validate = (values) => {
     let errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
 
-    if (!values.email) {
-      errors.email = "Cannot be blank";
-    } else if (!regex.test(values.email)) {
-      errors.email = "Invalid email format";
+    if (!values.nombre) {
+      errors.nombre = "Se requiere tu nombre";
+    } else if (values.nombre.length < 3) {
+      errors.nombre = "Nombre debe tener más de 3 caracteres";
     }
 
-    if (!values.password) {
-      errors.password = "Cannot be blank";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
+    if (!values.telefono) {
+      errors.telefono = "Se necesita teléfono";
+    } else if (values.nombre.telefono < 8) {
+      errors.telefono = "Teléfono de 8 dígitos o más";
+    }
+
+    if (!values.email_1) {
+      errors.email_1 = "Se requiere tu email";
+    } else if (!regexEmail.test(values.email_1)) {
+      errors.email_1 = "Formato de email inválido";
+    }
+
+        if (!values.email_2) {
+      errors.email_2 = "Repite tu email";
+    } else if (!(values.email_2 === values.email_1)) {
+      errors.email_2 = "Los email no concuerdan";
     }
 
     return errors;
-  };
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmitting) {
-      submit();
-    }
-  }, [formErrors]);
+  }
 
   return (
     <div className="container">
-      {/* {Object.keys(formErrors).length === 0 && isSubmitting && (
-        <span className="success-msg">Form submitted successfully</span>
-      )} */}
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-row">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="nombre">Nombre</label>
           <input
-            type="email"
-            name="email"
-            id="email"
-            value={formValues.email}
+            type="text"
+            name="nombre"
+            id="nombre"
+            value={formValues.nombre}
             onChange={handleChange}
-            className={formErrors.email && "input-error"}
+            className={formErrors.nombre && "input-error"}
           />
-          {formErrors.email && (
-            <span className="error">{formErrors.email}</span>
+          {formErrors.nombre && (
+            <span className="error">{formErrors.nombre}</span>
           )}
         </div>
 
         <div className="form-row">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="telefono">Teléfono</label>
           <input
-            type="password"
-            name="password"
-            id="password"
-            value={formValues.password}
+            type="text"
+            name="telefono"
+            id="telefono"
+            value={formValues.telefono}
             onChange={handleChange}
-            className={formErrors.password && "input-error"}
+            className={formErrors.telefono && "input-error"}
           />
-          {formErrors.password && (
-            <span className="error">{formErrors.password}</span>
+          {formErrors.telefono && (
+            <span className="error">{formErrors.telefono}</span>
+          )}
+        </div>
+
+                <div className="form-row">
+          <label htmlFor="email_1">Email</label>
+          <input
+            type="email"
+            name="email_1"
+            id="email_1"
+            value={formValues.email_1}
+            onChange={handleChange}
+            className={formErrors.email_1 && "input-error"}
+          />
+          {formErrors.email_1 && (
+            <span className="error">{formErrors.email_1}</span>
+          )}
+        </div>
+
+                <div className="form-row">
+          <label htmlFor="email_2">Confirma tu email</label>
+          <input
+            type="email"
+            name="email_2"
+            id="email_2"
+            value={formValues.email_2}
+            onChange={handleChange}
+            className={formErrors.email_2 && "input-error"}
+          />
+          {formErrors.email_2 && (
+            <span className="error">{formErrors.email_2}</span>
           )}
         </div>
 
         <button type="submit">Sign In</button>
       </form>
     </div>
-  );
+  )
 }
 
 

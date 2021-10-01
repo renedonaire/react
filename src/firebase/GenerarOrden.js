@@ -51,17 +51,4 @@ export const generarOrden =  (buyer, carrito, total) => {
  
     })
 
-
-        // actualizar cada uno por separado
-
-        // carrito.forEach((prod) => {
-        //     const docRef = db.collection('productos').doc(prod.id)
-        //     docRef.get()
-        //         .then(doc => {
-        //             docRef.update({
-        //                 stock: doc.data().stock - prod.cantidad
-        //             })
-        //             .then((res) => console.log(res))
-        //         })
-        // })
 }
