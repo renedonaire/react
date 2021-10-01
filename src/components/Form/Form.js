@@ -1,8 +1,15 @@
 import './Form.scss'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Swal from 'sweetalert2'
+import { generarOrden } from '../../firebase/GenerarOrden'
+import { CartContext } from '../../context/CartContext'
+
+
 
 import "./Form.scss";
-const Form = () => {
+export const Form = () => {
+      const { carrito, vaciarCarrito, precioTotal } = useContext(CartContext)
+
   const intialValues = { email: "", password: "" };
 
   const [formValues, setFormValues] = useState(intialValues);
@@ -11,6 +18,25 @@ const Form = () => {
 
   const submit = () => {
     console.log(formValues);
+            if (formErrors.length === 0) {
+            generarOrden(formValues, carrito, precioTotal())
+                .then(response => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${formValues.name} tu compra fue completada`,
+                        text: `Tu número de ticket: ${response}`,
+                        confirmButtonText: 'Volver'
+                    })
+                    vaciarCarrito()
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error:',
+                        text: `${err}`,
+                    })
+                })
+        } 
   };
 
   //input change handler
@@ -24,7 +50,7 @@ const Form = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmitting(true);
-  };
+  }
 
   //form validation handler
   const validate = (values) => {
@@ -92,6 +118,61 @@ const Form = () => {
       </form>
     </div>
   );
-};
+}
 
-export default Form;
+
+{/* <Col className="checkout_col">
+                            <form className="checkout_form" onSubmit={handleComprar}>
+                                <Row className="checkout_row">
+                                    <label for="nombre">Nombre</label>
+                                    <input
+                                        className={claseNombre}
+                                        type="text"
+                                        value={datosUsuario.nombre}
+                                        onChange={handleInputUser}
+                                        name="nombre"
+                                        placeholder="Tres o más caracteres"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="telefono">Teléfono</label>
+                                    <input
+                                        className={claseTelefono}
+                                        type="text"
+                                        value={datosUsuario.telefono}
+                                        onChange={handleInputUser}
+                                        name="telefono"
+                                        placeholder="Ocho o más caracteres"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="email_1">email</label>
+                                    <input
+                                        className={claseEmail_1}
+                                        type="email"
+                                        value={datosUsuario.email_1}
+                                        onChange={handleInputUser}
+                                        name="email_1"
+                                        placeholder="email"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="email_2">Repite tu email</label>
+                                    <input
+                                        className={claseEmail_2}
+                                        type="email"
+                                        value={datosUsuario.email_2}
+                                        onChange={handleInputUser}
+                                        name="email_2"
+                                        placeholder="Repite tu email"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <button type="submit" className="btn btn-outline-success checkout_btn">Comprar</button>
+                                </Row>
+                            </form>
+                        </Col> */}
