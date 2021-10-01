@@ -1,39 +1,27 @@
-.Form {
-  padding: 2rem;
-  background: white;
-  border-radius: 6px;
-  border: 1px solid #f0f0f0;
-  margin-bottom: 2rem;
-}
-
-.checkout_title {
+.form_title {
 	text-align: center;
 	margin: 1rem 0 1rem 0;
 }
 
-.checkout_col{
+.form_col{
     display: flex;
     justify-content: center;
 }
 
-.checkout_row{
+.form_row{
     display: flex;
     margin: 1rem;
     justify-content: center;
 }
 
-.checkout_btn{
+.form_btn{
+    width: 40%;
+}
+
+.form_form{
     width: 30%;
 }
 
-.checkout_form{
-    width: 30%;
-}
-
-.btn-hidden {
-    visibility: hidden;
-}
-
-.btn-show{
-    visibility: visible;
+.form_error{
+    color: red;
 }
