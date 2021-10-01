@@ -18,7 +18,7 @@ export const Form = () => {
 
   const submit = () => {
     console.log(formValues);
-            if (formErrors.length === 0) {
+            // if (formErrors.length === 0) {
             generarOrden(formValues, carrito, precioTotal())
                 .then(response => {
                     Swal.fire({
@@ -36,7 +36,7 @@ export const Form = () => {
                         text: `${err}`,
                     })
                 })
-        } 
+        // } 
   };
 
   //input change handler
