@@ -26,9 +26,9 @@ El proyecto estará disponible en la dirección http://localhost:3000
 
 ## Dependencias que usa
 El proyecto usa estas dependencias:
-- "normalize.css" para uniformar los estilos por defecto entre distintos navegadores
-- "react-bootstrap" para estilos de componentes, como la barra de navegación
-- "react-router-dom" para manejar las rutas de navegación
+- "normalize.css" para uniformar los estilos por defecto entre distintos navegadores [Normalize](https://necolas.github.io/normalize.css/)
+- "react-bootstrap" para estilos de componentes, como la barra de navegación [React Bootstrap](https://react-bootstrap.github.io/)
+- "react-router-dom" para manejar las rutas de navegación [React Router DOM](https://reactrouter.com/web/guides/quick-start)
 
 
 ## En funcionamiento
