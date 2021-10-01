@@ -5,3 +5,27 @@
   border: 1px solid #f0f0f0;
   margin-bottom: 2rem;
 }
+
+.checkout_title {
+	text-align: center;
+	margin: 1rem 0 1rem 0;
+}
+
+.checkout_col{
+    display: flex;
+    justify-content: center;
+}
+
+.checkout_row{
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+}
+
+.checkout_btn{
+    width: 30%;
+}
+
+.checkout_form{
+    width: 30%;
+}

@@ -7,7 +7,6 @@ import { generarOrden } from '../../firebase/GenerarOrden'
 import "../Checkout/Checkout.scss"
 
 import Form from '../Form/Form';
-import FormInput from '../Form/FormInput';
 
 export const Checkout = () => {
     const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
@@ -92,129 +91,129 @@ export const Checkout = () => {
         }
     }
 
+        return (
+            <Container>
+                <h2 className="checkout_title">Checkout</h2>
+                <h4 className="checkout_title">Por favor, ingresa tus datos para cursar el pedido:</h4>
+                {!carrito.length
+                    ? <Redirect to="/" />
+                    :
+                    <>
+                        <Form/>
+                        {/* <Col className="checkout_col">
+                            <form className="checkout_form" onSubmit={handleComprar}>
+                                <Row className="checkout_row">
+                                    <label for="nombre">Nombre</label>
+                                    <input
+                                        className={claseNombre}
+                                        type="text"
+                                        value={datosUsuario.nombre}
+                                        onChange={handleInputUser}
+                                        name="nombre"
+                                        placeholder="Tres o más caracteres"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="telefono">Teléfono</label>
+                                    <input
+                                        className={claseTelefono}
+                                        type="text"
+                                        value={datosUsuario.telefono}
+                                        onChange={handleInputUser}
+                                        name="telefono"
+                                        placeholder="Ocho o más caracteres"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="email_1">email</label>
+                                    <input
+                                        className={claseEmail_1}
+                                        type="email"
+                                        value={datosUsuario.email_1}
+                                        onChange={handleInputUser}
+                                        name="email_1"
+                                        placeholder="email"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <label for="email_2">Repite tu email</label>
+                                    <input
+                                        className={claseEmail_2}
+                                        type="email"
+                                        value={datosUsuario.email_2}
+                                        onChange={handleInputUser}
+                                        name="email_2"
+                                        placeholder="Repite tu email"
+                                        required
+                                    />
+                                </Row>
+                                <Row className="checkout_row">
+                                    <button type="submit" className="btn btn-outline-success checkout_btn">Comprar</button>
+                                </Row>
+                            </form>
+                        </Col> */}
+                    </>
+                }
+            </Container>
+        )
+    }
 
-    //     return (
-    //         <Container>
-    //             <h2 className="checkout_title">Checkout</h2>
-    //             <h4 className="checkout_title">Por favor, ingresa tus datos para cursar el pedido:</h4>
-    //             {!carrito.length
-    //                 ? <Redirect to="/" />
-    //                 :
-    //                 <>
-    //                     <Col className="checkout_col">
-    //                         <form className="checkout_form" onSubmit={handleComprar}>
-    //                             <Row className="checkout_row">
-    //                                 <label for="nombre">Nombre</label>
-    //                                 <input
-    //                                     className={claseNombre}
-    //                                     type="text"
-    //                                     value={datosUsuario.nombre}
-    //                                     onChange={handleInputUser}
-    //                                     name="nombre"
-    //                                     placeholder="Tres o más caracteres"
-    //                                     required
-    //                                 />
-    //                             </Row>
-    //                             <Row className="checkout_row">
-    //                                 <label for="telefono">Teléfono</label>
-    //                                 <input
-    //                                     className={claseTelefono}
-    //                                     type="text"
-    //                                     value={datosUsuario.telefono}
-    //                                     onChange={handleInputUser}
-    //                                     name="telefono"
-    //                                     placeholder="Ocho o más caracteres"
-    //                                     required
-    //                                 />
-    //                             </Row>
-    //                             <Row className="checkout_row">
-    //                                 <label for="email_1">email</label>
-    //                                 <input
-    //                                     className={claseEmail_1}
-    //                                     type="email"
-    //                                     value={datosUsuario.email_1}
-    //                                     onChange={handleInputUser}
-    //                                     name="email_1"
-    //                                     placeholder="email"
-    //                                     required
-    //                                 />
-    //                             </Row>
-    //                             <Row className="checkout_row">
-    //                                 <label for="email_2">Repite tu email</label>
-    //                                 <input
-    //                                     className={claseEmail_2}
-    //                                     type="email"
-    //                                     value={datosUsuario.email_2}
-    //                                     onChange={handleInputUser}
-    //                                     name="email_2"
-    //                                     placeholder="Repite tu email"
-    //                                     required
-    //                                 />
-    //                             </Row>
-    //                             <Row className="checkout_row">
-    //                                 <button type="submit" className="btn btn-outline-success checkout_btn">Comprar</button>
-    //                             </Row>
-    //                         </form>
-    //                     </Col>
-    //                 </>
-    //             }
-    //         </Container>
-    //     )
-    // }
 
+//     const [message, setMessage] = useState('');
 
-    const [message, setMessage] = useState('');
+//     const initialValues = {
+//         firstName: '',
+//         lastName: '',
+//         emailAddress: '',
+//         password: '',
+//     };
 
-    const initialValues = {
-        firstName: '',
-        lastName: '',
-        emailAddress: '',
-        password: '',
-    };
+//     const submit = (form) => {
+//         setMessage(`Thanks for signing up, ${form.firstName} ${form.lastName}! We've sent you an email to ${form.emailAddress}.`);
+//     };
 
-    const submit = (form) => {
-        setMessage(`Thanks for signing up, ${form.firstName} ${form.lastName}! We've sent you an email to ${form.emailAddress}.`);
-    };
+//     return (
+//         <div className="App">
+//             <h1>Sign Up</h1>
 
-    return (
-        <div className="App">
-            <h1>Sign Up</h1>
+//             <Form submit={submit} initialValues={initialValues}>
+//                 <FormInput
+//                     label="First Name"
+//                     name="firstName" />
+//                 <FormInput
+//                     label="Last Name"
+//                     name="lastName" />
+//                 <FormInput
+//                     label="Email Address"
+//                     type="email"
+//                     name="emailAddress" />
+//                 <FormInput
+//                     label="Password"
+//                     type="password"
+//                     name="password" />
+//             </Form>
 
-            <Form submit={submit} initialValues={initialValues}>
-                <FormInput
-                    label="First Name"
-                    name="firstName" />
-                <FormInput
-                    label="Last Name"
-                    name="lastName" />
-                <FormInput
-                    label="Email Address"
-                    type="email"
-                    name="emailAddress" />
-                <FormInput
-                    label="Password"
-                    type="password"
-                    name="password" />
-            </Form>
+//             <p>{message}</p>
 
-            <p>{message}</p>
-
-            <h2>Log In</h2>
-            <Form
-                submit={(form) => {
-                    alert(`Logged in as ${form.username}!`);
-                }}
-                initialValues={{
-                    username: '',
-                    password: ''
-                }}>
-                <FormInput
-                    label="Username"
-                    name="username" />
-                <FormInput
-                    label="Password"
-                    name="password" />
-            </Form>
-        </div>
-    );
-}
+//             <h2>Log In</h2>
+//             <Form
+//                 submit={(form) => {
+//                     alert(`Logged in as ${form.username}!`);
+//                 }}
+//                 initialValues={{
+//                     username: '',
+//                     password: ''
+//                 }}>
+//                 <FormInput
+//                     label="Username"
+//                     name="username" />
+//                 <FormInput
+//                     label="Password"
+//                     name="password" />
+//             </Form>
+//         </div>
+//     );
+// }

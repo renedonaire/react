@@ -1,43 +1,97 @@
-import React, { useState } from 'react';
-import './Form.scss';
-import {FormContext} from '../../context/FormContext.js'
+import './Form.scss'
+import React, { useState, useEffect } from "react";
 
-// export const FormContext = React.createContext({
-//   form: {}
-// });
+import "./Form.scss";
+const Form = () => {
+  const intialValues = { email: "", password: "" };
 
-function Form(props) {
-  const { children, submit = () => {}, initialValues } = props;
+  const [formValues, setFormValues] = useState(intialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [form, setForm] = useState(initialValues);
-
-  const handleFormChange = (event) => {
-    // Get the name of the field that caused this change event
-    // Get the new value of this field
-    const { name, value } = event.target;
-
-    // Update state
-    // Assign new value to the appropriate form field
-    setForm({
-      ...form,
-      [name]: value
-    });
+  const submit = () => {
+    console.log(formValues);
   };
 
-  return (
-    <form className="Form">
-      <FormContext.Provider value={{
-        form,
-        handleFormChange
-      }}>
-        {children}
-      </FormContext.Provider>
+  //input change handler
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
 
-      <button type="button" onClick={() => submit(form)}>
-        Submit
-      </button>
-    </form>
+  //form submission handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmitting(true);
+  };
+
+  //form validation handler
+  const validate = (values) => {
+    let errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (!values.email) {
+      errors.email = "Cannot be blank";
+    } else if (!regex.test(values.email)) {
+      errors.email = "Invalid email format";
+    }
+
+    if (!values.password) {
+      errors.password = "Cannot be blank";
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 characters";
+    }
+
+    return errors;
+  };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmitting) {
+      submit();
+    }
+  }, [formErrors]);
+
+  return (
+    <div className="container">
+      {/* {Object.keys(formErrors).length === 0 && isSubmitting && (
+        <span className="success-msg">Form submitted successfully</span>
+      )} */}
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="form-row">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formValues.email}
+            onChange={handleChange}
+            className={formErrors.email && "input-error"}
+          />
+          {formErrors.email && (
+            <span className="error">{formErrors.email}</span>
+          )}
+        </div>
+
+        <div className="form-row">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={formValues.password}
+            onChange={handleChange}
+            className={formErrors.password && "input-error"}
+          />
+          {formErrors.password && (
+            <span className="error">{formErrors.password}</span>
+          )}
+        </div>
+
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
   );
-}
+};
 
 export default Form;
