@@ -29,11 +29,13 @@ El proyecto usa estas dependencias:
 - "normalize.css" para uniformar los estilos por defecto entre distintos navegadores [Normalize](https://necolas.github.io/normalize.css/)
 - "react-bootstrap" para estilos de componentes, como la barra de navegación [React Bootstrap](https://react-bootstrap.github.io/)
 - "react-router-dom" para manejar las rutas de navegación [React Router DOM](https://reactrouter.com/web/guides/quick-start)
+- "firebase" para conectarse a la base de datos [Firebase](https://firebase.google.com/)
+- "sweet alert 2" para generar alertas [SweetAlert](https://sweetalert2.github.io/)
 
 
 ## En funcionamiento
 Link a archivo .gif que muestra el funcionamiento:
-[Proceso de compra](https://github.com/renedonaire/gifs/blob/main/BlackDog.gif)
+[Proceso de compra](https://github.com/renedonaire/gifs/blob/main/BlackDogFinal.gif)
 
 
 ### Autor
