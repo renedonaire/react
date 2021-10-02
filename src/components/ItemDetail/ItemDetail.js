@@ -35,7 +35,7 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                                     <Link to={`/category/${category}`} className="btn btn-outline-dark">Volver</Link>
                                 </Col>
                                 <Col>
-                                    <Row><p className='item_detail_price'>${pricePesos}</p></Row>
+                                    <Row><p className='item_detail_price'>${pricePesos()}</p></Row>
                                     <Row>
                                         <Counter
                                             max={stock}
