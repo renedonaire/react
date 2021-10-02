@@ -43,7 +43,7 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                                             setCantidad={setCantidad}
                                             agregar={handleAdd}
                                             agregado={isInCart(id)}
-                                            />
+                                        />
                                     </Row>
                                 </Col>
                             </Row>
@@ -52,14 +52,24 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                 </Container>
 
                 :
-                <Col>
-                    <Row>
-                        <h2>Error</h2>
+                <Container>
+                    <Row className="item_detail_row">
+                        <Col className="item_detail_book" >
+                            <img className='item_detail_image' src="/images/dog_looking.png" alt="dog_looking" />
+                        </Col>
+                        <Col>
+                            <Row>
+                                <h2 className='item_detail_title' >Error</h2>
+                            </Row>
+                            <Row>
+                                <h5>No encontramos la página que solicitas.</h5>
+                            </Row>
+                            <Row>
+                                <Link to={`/`} className="btn btn-outline-dark">Inicio</Link>
+                            </Row>
+                        </Col>
                     </Row>
-                    <Row>
-                        <Link to={`/`} className="btn btn-outline-dark">Inicio</Link>
-                    </Row>
-                </Col>
+                </Container>
             }
         </>
     )
