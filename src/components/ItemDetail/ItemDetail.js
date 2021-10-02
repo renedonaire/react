@@ -62,10 +62,10 @@ export const ItemDetail = ({ id, title, category, description, description_full,
                                 <h2 className='item_detail_title' >Error</h2>
                             </Row>
                             <Row>
-                                <h5>No encontramos la página que solicitas.</h5>
+                                <h5 className='item_error'>No encontramos la página que solicitas.</h5>
                             </Row>
-                            <Row>
-                                <Link to={`/`} className="btn btn-outline-dark">Inicio</Link>
+                            <Row className='item_error_row'>
+                                <Link to={`/`} className="btn btn-dark btn_error">Inicio</Link>
                             </Row>
                         </Col>
                     </Row>
